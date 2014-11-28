@@ -137,7 +137,7 @@ class Woocommerce_Pfand {
 		$plugin_i18n = new Woocommerce_Pfand_i18n();
 		$plugin_i18n->set_domain( $this->get_woocommerce_pfand() );
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+        $this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
 
@@ -153,7 +153,9 @@ class Woocommerce_Pfand {
 		$plugin_admin = new Woocommerce_Pfand_Admin( $this->get_woocommerce_pfand(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+        $this->loader->add_action( 'init', $plugin_admin, 'deposit_taxonomy' );
 
 	}
 
@@ -171,7 +173,7 @@ class Woocommerce_Pfand {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-	}
+    }
 
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
