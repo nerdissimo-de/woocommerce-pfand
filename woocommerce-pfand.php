@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://example.com
+ * @link              http://www.nerdissimo.de
  * @since             1.0.0
  * @package           Woocommerce_Pfand
  *
  * @wordpress-plugin
  * Plugin Name:       Woocommerce Pfand
  * Plugin URI:        http://www.nerdissimo.de
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
+ * Description:       This plugin makes it easy to add Deposits (Pfand) to WooCommerce products
  * Version:           1.0.0
- * Author:            Daniel Kay
- * Author URI:        http://www.enthusiasm.cc
+ * Author:            Nerdissimo
+ * Author URI:        http://www.nerdissimo.de
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       woocommerce-pfand

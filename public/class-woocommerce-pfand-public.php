@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       http://www.nerdissimo.de
  * @since      1.0.0
  *
  * @package    Woocommerce_Pfand
@@ -49,62 +49,16 @@ class Woocommerce_Pfand_Public {
 	 */
 	public function __construct( $woocommerce_pfand, $version ) {
 
-		$this->woocommerce_pfand = $woocommerce_pfand;
+        $this->woocommerce_pfand = $woocommerce_pfand;
         $this->version = $version;
 
-        add_filter( 'woocommerce_get_price_suffix' , array( $this, 'add_deposit_value_to_price_suffix' ), 10, 2 );
+        add_filter( 'woocommerce_get_price_suffix', array( $this, 'add_deposit_value_to_price_suffix' ), 10, 2 );
         add_filter( 'woocommerce_cart_item_price', array( $this, 'add_deposit_value_to_cart_item_price' ), 10, 3 );
         add_filter( 'woocommerce_cart_item_subtotal', array( $this, 'add_deposit_value_to_cart_item_subtotal' ), 10, 3 );
 
         add_action( 'woocommerce_cart_calculate_fees', array( $this, 'add_deposit_value_to_totals' ) );
 
 	}
-
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Woocommerce_Pfand_Public_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Woocommerce_Pfand_Public_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_style( $this->woocommerce_pfand, plugin_dir_url( __FILE__ ) . 'css/woocommerce-pfand-public.css', array(), $this->version, 'all' );
-
-	}
-
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Woocommerce_Pfand_Public_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Woocommerce_Pfand_Public_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-        wp_enqueue_script( $this->woocommerce_pfand, plugin_dir_url( __FILE__ ) . 'js/woocommerce-pfand-public.js', array( 'jquery' ), $this->version, false );
-
-    }
 
     /**
      * Adds deposit value to price displays

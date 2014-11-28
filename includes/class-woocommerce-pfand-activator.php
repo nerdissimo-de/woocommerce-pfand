@@ -3,7 +3,7 @@
 /**
  * Fired during plugin activation
  *
- * @link       http://example.com
+ * @link       http://www.nerdissimo.de
  * @since      1.0.0
  *
  * @package    Woocommerce_Pfand

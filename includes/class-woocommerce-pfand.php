@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the dashboard.
  *
- * @link       http://example.com
+ * @link       http://www.nerdissimo.de
  * @since      1.0.0
  *
  * @package    Woocommerce_Pfand
@@ -152,9 +152,6 @@ class Woocommerce_Pfand {
 
 		$plugin_admin = new Woocommerce_Pfand_Admin( $this->get_woocommerce_pfand(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
         $this->loader->add_action( 'init', $plugin_admin, 'deposit_taxonomy' );
 
 	}
@@ -169,9 +166,6 @@ class Woocommerce_Pfand {
 	private function define_public_hooks() {
 
 		$plugin_public = new Woocommerce_Pfand_Public( $this->get_woocommerce_pfand(), $this->get_version() );
-
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
     }
 
