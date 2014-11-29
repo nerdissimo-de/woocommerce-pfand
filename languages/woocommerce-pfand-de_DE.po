@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woocommerce Pfand\n"
-"POT-Creation-Date: 2014-11-28 16:51+0100\n"
-"PO-Revision-Date: 2014-11-28 16:52+0100\n"
+"POT-Creation-Date: 2014-11-29 11:13+0100\n"
+"PO-Revision-Date: 2014-11-29 11:14+0100\n"
 "Last-Translator: Daniel Kay <daniel@enthusiasm.cc>\n"
 "Language-Team: Daniel Kay <daniel@enthusiasm.cc>\n"
 "Language: de_DE\n"
@@ -18,83 +18,95 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-woocommerce-pfand-admin.php:111
+#: admin/class-woocommerce-pfand-admin.php:67
 msgctxt "taxonomy general name"
 msgid "Deposit Types"
 msgstr "Pfandwerte"
 
-#: admin/class-woocommerce-pfand-admin.php:112
+#: admin/class-woocommerce-pfand-admin.php:68
 msgctxt "taxonomy singular name"
 msgid "Deposit Type"
 msgstr "Pfandwert"
 
-#: admin/class-woocommerce-pfand-admin.php:113
+#: admin/class-woocommerce-pfand-admin.php:69
 msgctxt "admin menu"
 msgid "Deposit Types"
 msgstr "Pfandwerte"
 
-#: admin/class-woocommerce-pfand-admin.php:114
+#: admin/class-woocommerce-pfand-admin.php:70
 msgctxt "add new on admin bar"
 msgid "Add New Deposit Type"
 msgstr "Neuen Pfandwert hinzufügen"
 
-#: admin/class-woocommerce-pfand-admin.php:115
+#: admin/class-woocommerce-pfand-admin.php:71
 msgctxt "add new on admin menu"
 msgid "Add New Deposit Type"
 msgstr "Neuen Pfandwert hinzufügen"
 
-#: admin/class-woocommerce-pfand-admin.php:116
+#: admin/class-woocommerce-pfand-admin.php:72
 msgid "Search Deposit Types"
 msgstr "Pfandwerte durchsuchen"
 
-#: admin/class-woocommerce-pfand-admin.php:117
+#: admin/class-woocommerce-pfand-admin.php:73
 msgid "Popular Deposit Types"
 msgstr "Beliebte Pfandwerte"
 
-#: admin/class-woocommerce-pfand-admin.php:118
+#: admin/class-woocommerce-pfand-admin.php:74
 msgid "All Deposit Types"
 msgstr "Alle Pfandwerte"
 
-#: admin/class-woocommerce-pfand-admin.php:119
+#: admin/class-woocommerce-pfand-admin.php:75
 msgid "Parent Deposit Type"
 msgstr "Übergeordneter Pfandwert"
 
-#: admin/class-woocommerce-pfand-admin.php:120
+#: admin/class-woocommerce-pfand-admin.php:76
 msgid "Parent Deposit Type:"
 msgstr "Übergeordneter Pfandwert"
 
-#: admin/class-woocommerce-pfand-admin.php:121
+#: admin/class-woocommerce-pfand-admin.php:77
 msgid "Edit Deposit Type"
 msgstr "Pfandwert bearbeiten"
 
-#: admin/class-woocommerce-pfand-admin.php:122
+#: admin/class-woocommerce-pfand-admin.php:78
 msgid "Update Deposit Type"
 msgstr "Pfandwert aktualisieren"
 
-#: admin/class-woocommerce-pfand-admin.php:123
+#: admin/class-woocommerce-pfand-admin.php:79
 msgid "New Deposit Type"
 msgstr "Neuen Pfandwert hinzufügen"
 
-#: admin/class-woocommerce-pfand-admin.php:124
+#: admin/class-woocommerce-pfand-admin.php:80
 msgid "Separate deposit types with commas"
 msgstr "Trenne Pfandwerte mit Kommata"
 
-#: admin/class-woocommerce-pfand-admin.php:125
+#: admin/class-woocommerce-pfand-admin.php:81
 msgid "Add or remove Deposit Types"
 msgstr "Pfandwert hinzufügen oder entfernen"
 
-#: admin/class-woocommerce-pfand-admin.php:126
+#: admin/class-woocommerce-pfand-admin.php:82
 msgid "Choose from most used Deposit Types"
 msgstr "Wähle von den meistgenutzten Pfandwerten"
 
-#: public/class-woocommerce-pfand-public.php:125
-#: public/class-woocommerce-pfand-public.php:144
-#: public/class-woocommerce-pfand-public.php:160
+#: admin/class-woocommerce-pfand-admin.php:108
+msgid "Deposit Type"
+msgstr "Pfandwert"
+
+#: admin/class-woocommerce-pfand-admin.php:109
+msgid "Description"
+msgstr "Beschreibung"
+
+#: admin/class-woocommerce-pfand-admin.php:110
+msgid "Count"
+msgstr "Anzahl"
+
+#: public/class-woocommerce-pfand-public.php:79
+#: public/class-woocommerce-pfand-public.php:98
+#: public/class-woocommerce-pfand-public.php:114
 #, php-format
 msgid "plus deposit of %s"
 msgstr "zzgl. %s Pfand"
 
-#: public/class-woocommerce-pfand-public.php:177
+#: public/class-woocommerce-pfand-public.php:131
 msgid "Deposit Total"
 msgstr "Pfand Summe"
 

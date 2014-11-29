@@ -50,7 +50,9 @@ class Woocommerce_Pfand_Admin {
 	public function __construct( $woocommerce_pfand, $version ) {
 
 		$this->woocommerce_pfand = $woocommerce_pfand;
-		$this->version = $version;
+        $this->version = $version;
+
+        add_filter( 'manage_edit-product_deptype_columns', array( $this, 'deptype_columns' ) ); 
 
 	}
 
@@ -93,6 +95,21 @@ class Woocommerce_Pfand_Admin {
         );
 
         register_taxonomy( 'product_deptype', array( 'product' ), $args );
+    }
+
+    /**
+     * Adjust columns in Admin UI
+     *
+     * @since   1.0.0
+     */
+    function deptype_columns( $columns ) {
+        $new_columns = array(
+            'cb' => '<input type="checkbox" />',
+            'name' => __( 'Deposit Type', $this->woocommerce_pfand ),
+            'description' => __( 'Description', $this->woocommerce_pfand ),
+            'posts' => __( 'Count', $this->woocommerce_pfand )
+        );
+        return $new_columns;
     }
 
 }
