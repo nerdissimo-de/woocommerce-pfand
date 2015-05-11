@@ -24,6 +24,8 @@ the price under Products - Deposit Types.
 comma-separate them, you have to input the prices with '.' as the decimal
 separator , independent of the WooCommerce settings.
 
+**For compatibility with WooCommerce German Market by MarketPress.com please contact us.**
+
 
 == Installation ==
 
