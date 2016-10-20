@@ -69,24 +69,17 @@ class Woocommerce_Pfand {
 	public function __construct() {
 
 		$this->woocommerce_pfand = 'woocommerce-pfand';
-		$this->version = '1.0.0';
+		$this->version = '2.0.0-beta';
 
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
-		$this->define_public_hooks();
+		$this->define_basic_hooks();
 
 	}
 
 	/**
 	 * Load the required dependencies for this plugin.
-	 *
-	 * Include the following files that make up the plugin:
-	 *
-	 * - Woocommerce_Pfand_Loader. Orchestrates the hooks of the plugin.
-	 * - Woocommerce_Pfand_i18n. Defines internationalization functionality.
-	 * - Woocommerce_Pfand_Admin. Defines all hooks for the dashboard.
-	 * - Woocommerce_Pfand_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -114,12 +107,11 @@ class Woocommerce_Pfand {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woocommerce-pfand-admin.php';
 
 		/**
-		 * The class responsible for defining all actions that occur in the public-facing
-		 * side of the site.
+		 * The class responsible for defining all actions that are basic to the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-woocommerce-pfand-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'basic/class-woocommerce-pfand-basic.php';
 
-		$this->loader = new Woocommerce_Pfand_Loader();
+        $this->loader = new Woocommerce_Pfand_Loader(); 
 
 	}
 
@@ -157,15 +149,15 @@ class Woocommerce_Pfand {
 	}
 
 	/**
-	 * Register all of the hooks related to the public-facing functionality
+	 * Register all of the hooks related to the basic functionality
 	 * of the plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_public_hooks() {
+	private function define_basic_hooks() {
 
-		$plugin_public = new Woocommerce_Pfand_Public( $this->get_woocommerce_pfand(), $this->get_version() );
+		$plugin_basic = new Woocommerce_Pfand_Basic( $this->get_woocommerce_pfand(), $this->get_version() );
 
     }
 

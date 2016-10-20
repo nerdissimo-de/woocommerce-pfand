@@ -52,9 +52,83 @@ class Woocommerce_Pfand_Admin {
 		$this->woocommerce_pfand = $woocommerce_pfand;
         $this->version = $version;
 
+        add_filter( 'woocommerce_settings_tabs_array', array( $this, 'add_settings_tab' ), 50 ); 
+        add_action( 'woocommerce_settings_tabs_deposit', array( $this, 'settings_tab' ) ); 
+        add_action( 'woocommerce_update_options_deposit', array( $this, 'update_settings' ) );
+
         add_filter( 'manage_edit-product_deptype_columns', array( $this, 'deptype_columns' ) ); 
 
-	}
+    }
+
+    /** 
+     * Adds a new settings tab to the WooCommerce settings tabs array. 
+     *
+     * @since   2.0.0
+     */ 
+    function add_settings_tab( $settings_tabs ) { 
+        $settings_tabs['deposit'] = __( 'Deposit', $this->woocommerce_pfand ); 
+        return $settings_tabs; 
+    } 
+ 
+    /** 
+     * Uses the WooCommerce admin fields API to output settings via the woocommerce_admin_fields() function. 
+     *
+     * @since   2.0.0
+     */ 
+    function settings_tab() { 
+        woocommerce_admin_fields( $this->get_settings() ); 
+    } 
+ 
+    /** 
+     * Uses the WooCommerce options API to save settings via the woocommerce_update_options() function. 
+     *
+     * @since   2.0.0
+     */ 
+    function update_settings() { 
+        woocommerce_update_options( $this->get_settings() ); 
+    } 
+ 
+    /** 
+     * Get all the settings for this plugin for woocommerce_admin_fields() function. 
+     * 
+     * @return array Array of settings for woocommerce_admin_fields() function. 
+     * @since   2.0.0
+     */ 
+    function get_settings() { 
+
+        // Start Section
+        $settings = array( 
+            'section_title' => array( 
+                'name'     => __( 'Deposit', $this->woocommerce_pfand ), 
+                'type'     => 'title', 
+                'desc'     => '', 
+                'id'       => 'wc_deposit_section_title' 
+            ),
+            'hide_in_loop' => array( 
+                'name' => __( 'Hide in loop', $this->woocommerce_pfand ), 
+                'type' => 'checkbox', 
+                'desc' => __( 'If checked hides deposit display on archives and single product pages.', $this->woocommerce_pfand ), 
+                'id'   => 'wc_deposit_hide_in_loop' 
+            ), 
+            'hide_in_cart' => array( 
+                'name' => __( 'Hide in cart/checkout', $this->woocommerce_pfand ), 
+                'type' => 'checkbox', 
+                'desc' => __( 'If checked hides deposit display next to the product prices in the cart and checkout.', $this->woocommerce_pfand ), 
+                'id'   => 'wc_deposit_hide_in_cart' 
+            )
+        ); 
+        
+        $settings = apply_filters( 'wc_deposit_settings', $settings );
+
+
+        // End Section
+        $settings['section_end'] = array( 
+             'type' => 'sectionend', 
+             'id' => 'wc_deposit_section_end' 
+        );
+ 
+        return $settings; 
+    } 
 
     /**
      * Register custom taxonomy

@@ -3,11 +3,6 @@
 /**
  * The plugin bootstrap file
  *
- * This file is read by WordPress to generate the plugin information in the plugin
- * Dashboard. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
  * @link              http://www.nerdissimo.de
  * @since             1.0.0
  * @package           Woocommerce_Pfand
@@ -16,7 +11,7 @@
  * Plugin Name:       Woocommerce Pfand
  * Plugin URI:        http://www.nerdissimo.de
  * Description:       This plugin makes it easy to add Deposits (Pfand) to WooCommerce products
- * Version:           1.0.0
+ * Version:           2.0.0-beta
  * Author:            Nerdissimo
  * Author URI:        http://www.nerdissimo.de
  * License:           GPL-2.0+

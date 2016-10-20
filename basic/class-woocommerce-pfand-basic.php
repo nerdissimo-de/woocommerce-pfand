@@ -1,26 +1,21 @@
 <?php
 
 /**
- * The public-facing functionality of the plugin.
+ * The basic functionality of the plugin.
  *
  * @link       http://www.nerdissimo.de
  * @since      1.0.0
  *
  * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/public
+ * @subpackage Woocommerce_Pfand/basic
  */
 
 /**
- * The public-facing functionality of the plugin.
- *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the dashboard-specific stylesheet and JavaScript.
- *
  * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/public
+ * @subpackage Woocommerce_Pfand/basic
  * @author     Daniel Kay <daniel@nerdissimo.de>
  */
-class Woocommerce_Pfand_Public {
+class Woocommerce_Pfand_Basic {
 
 	/**
 	 * The ID of this plugin.
@@ -53,8 +48,9 @@ class Woocommerce_Pfand_Public {
         $this->version = $version;
 
         add_filter( 'woocommerce_get_price_suffix', array( $this, 'add_deposit_value_to_price_suffix' ), 10, 2 );
-        add_filter( 'woocommerce_cart_item_price', array( $this, 'add_deposit_value_to_cart_item_price' ), 10, 3 );
-        add_filter( 'woocommerce_cart_item_subtotal', array( $this, 'add_deposit_value_to_cart_item_subtotal' ), 10, 3 );
+
+        add_filter( 'woocommerce_cart_item_price', array( $this, 'add_deposit_value_to_cart' ), 10, 3 );
+        add_filter( 'woocommerce_cart_item_subtotal', array( $this, 'add_deposit_value_to_cart' ), 10, 3 );
 
         add_action( 'woocommerce_cart_calculate_fees', array( $this, 'add_deposit_value_to_totals' ) );
 
@@ -62,18 +58,23 @@ class Woocommerce_Pfand_Public {
 
     /**
      * Adds deposit value to price displays
-     * e.g. archive, content, single, cart
+     * e.g. archive, content, single
      *
      * @since   1.0.0
      */
     function add_deposit_value_to_price_suffix( $price_display_suffix, $product ) {
 
+        if( get_option( 'wc_deposit_hide_in_loop' ) == 'yes' )
+            return $price_display_suffix;
+
+        if( ! $this->display_deposit() )
+            return $price_display_suffix;
+
         $dep_total = $this->get_deposit( $product->id );
 
         if( ! empty( $dep_total ) ) {
 
-            // Remove </small>
-            $price_display_suffix = preg_replace( '/<\/small>/', '', $price_display_suffix, 1 );
+            $price_display_suffix = preg_replace( '/<\/small>/', '', $price_display_suffix, 1 ); // removes </small>
 
             $price_display_suffix .= '<br />';
             $price_display_suffix .= sprintf( __( 'plus deposit of %s', $this->woocommerce_pfand ), wc_price( $dep_total ) );
@@ -86,33 +87,26 @@ class Woocommerce_Pfand_Public {
     }
 
     /**
-     * Adds deposit value to item price displays in the cart
+     * Adds deposit value to item price displays in cart and checkout
      *
      * @since   1.0.0
      */
-    function add_deposit_value_to_cart_item_price( $product_price, $values, $cart_item_key ) {
- 
-        $dep_total = $this->get_deposit( $values['product_id'] );
+    function add_deposit_value_to_cart( $product_price, $values, $cart_item_key ) {
 
-        if( ! empty( $dep_total ) ) {
+        if( get_option( 'wc_deposit_hide_in_cart' ) == 'yes' )
+            return $product_price; 
+
+        if( ! $this->display_deposit() )
+            return $product_price;
+
+        $qty = 1;
+        if( current_filter() == 'woocommerce_cart_item_subtotal' )
+            $qty = $values['quantity'];
+
+        $dep_total = $this->get_deposit( $values['product_id'], $qty );
+
+        if( ! empty( $dep_total ) )
             return $product_price . '<br /><small class="deposit_label">' .  sprintf( __( 'plus deposit of %s', $this->woocommerce_pfand ), wc_price( $dep_total ) ) . '</small>';
-        }
- 
-        return $product_price;
-    }
-
-    /**
-     * Adds deposit value to subtotal display in cart
-     *
-     * @since   1.0.0
-     */
-    function add_deposit_value_to_cart_item_subtotal( $product_price, $values, $cart_item_key ) {
- 
-        $dep_total = $this->get_deposit( $values['product_id'], $values['quantity'] );
-
-        if( ! empty( $dep_total ) ) {
-            return $product_price . '<br /><small class="deposit_label">' .  sprintf( __( 'plus deposit of %s', $this->woocommerce_pfand ), wc_price( $dep_total ) ) . '</small>';
-        }
  
         return $product_price;
     }
@@ -121,14 +115,41 @@ class Woocommerce_Pfand_Public {
      * Adds deposit value to totals
      */
     function add_deposit_value_to_totals() {
+
+        if( ! $this->display_deposit() )
+            return;
+
         global $woocommerce;
 
         $dep_total = 0;
-        foreach ( WC()->cart->get_cart() as $cart_item ) {
-            $dep_total = $dep_total + $this->get_deposit( $cart_item['product_id'], $cart_item['quantity'] );
-        }
+        $tax = $taxclass = false;
 
-        $woocommerce->cart->add_fee( __( 'Deposit Total', $this->woocommerce_pfand ), $dep_total );
+        foreach( WC()->cart->get_cart() as $cart_item )
+            $dep_total = $dep_total + $this->get_deposit( $cart_item['product_id'], $cart_item['quantity'] );
+
+        $tax = apply_filters( 'add_deposit_value_to_totals', $tax );
+        $dep_total = apply_filters( 'dep_total_before_add_fee', $dep_total );
+        $tax_class = apply_filters( 'tax_class_before_add_fee', $tax_class );
+
+        $woocommerce->cart->add_fee( __( 'Deposit Total', $this->woocommerce_pfand ), $dep_total, $tax, $tax_class );
+
+    }
+
+    /**
+     * Function to determine whether deposit should be displayed
+     *
+     * @since   2.0.0
+     */
+    static function display_deposit() {
+
+        $display = true;
+
+        if( is_admin() ) 
+            return false; 
+
+        $display = apply_filters( 'display_deposit', $display );
+
+        return $display;
     }
 
     /**
@@ -136,8 +157,9 @@ class Woocommerce_Pfand_Public {
      *
      * @since   1.0.0
      */
-    function get_deposit( $id, $quantity = 1 ) {
+    static function get_deposit( $id, $quantity = 1 ) {
 
+        $dep_total = 0;
         $terms = get_the_terms( $id, 'product_deptype' );
 
         if( $terms && ! is_wp_error( $terms ) ) {
@@ -149,6 +171,7 @@ class Woocommerce_Pfand_Public {
 
         if( $dep_total > 0 ) {
             $dep_total = $dep_total * $quantity;
+            $dep_total = apply_filters( 'get_deposit', $dep_total );
             return $dep_total;
         }
 
