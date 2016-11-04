@@ -4,7 +4,7 @@ This plugin makes it easy to add deposit like "bottle deposit" (German: Flaschen
 
 *Dieses Plugin ermöglicht es, jedem Woocommerce Produkt Pfandwerte zuzuweisen und somit Dinge wie Flaschenpfand abzubilden. Deutsche Übersetzung liegt bei. Für Anpassungen bitten wir um [Kontaktaufnahme](http://www.nerdissimo.de/).*
 
-**Version:** 2.0-beta
+**Version:** 2.0.0-beta2
 
 
 ## Description
