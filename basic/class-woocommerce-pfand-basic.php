@@ -131,7 +131,8 @@ class Woocommerce_Pfand_Basic {
         $dep_total = apply_filters( 'dep_total_before_add_fee', $dep_total );
         $tax_class = apply_filters( 'tax_class_before_add_fee', $tax_class );
 
-        $woocommerce->cart->add_fee( __( 'Deposit Total', $this->woocommerce_pfand ), $dep_total, $tax, $tax_class );
+        if( $dep_total > 0 )
+            $woocommerce->cart->add_fee( __( 'Deposit Total', $this->woocommerce_pfand ), $dep_total, $tax, $tax_class );
 
     }
 
