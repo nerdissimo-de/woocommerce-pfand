@@ -1,0 +1,157 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Woocommerce Pfand\n"
+"POT-Creation-Date: 2016-11-04 09:55+0100\n"
+"PO-Revision-Date: 2016-11-04 09:58+0100\n"
+"Last-Translator: Daniel Kay <daniel@enthusiasm.cc>\n"
+"Language-Team: Daniel Kay <daniel@enthusiasm.cc>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: woocommerce-pfand.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/class-woocommerce-pfand-admin.php:69
+#: admin/class-woocommerce-pfand-admin.php:102
+msgid "Deposit"
+msgstr "Pfand"
+
+#: admin/class-woocommerce-pfand-admin.php:108
+msgid "Hide in loop"
+msgstr "Verstecke im Loop"
+
+#: admin/class-woocommerce-pfand-admin.php:110
+msgid "If checked hides deposit display on archives and single product pages."
+msgstr ""
+"Wenn aktiviert: Versteckt Pfandwertanzeige in Archiven und auf "
+"Produkteinzelseiten."
+
+#: admin/class-woocommerce-pfand-admin.php:114
+msgid "Hide in cart/checkout"
+msgstr "Verstecke in Warenkorb/Kasse"
+
+#: admin/class-woocommerce-pfand-admin.php:116
+msgid ""
+"If checked hides deposit display next to the product prices in the cart and "
+"checkout."
+msgstr ""
+"Wenn aktiviert: Versteckt Pfandwertanzeige neben Produktpreisen in Warenkorb "
+"und Kasse."
+
+#: admin/class-woocommerce-pfand-admin.php:141
+msgctxt "taxonomy general name"
+msgid "Deposit Types"
+msgstr "Pfandwerte"
+
+#: admin/class-woocommerce-pfand-admin.php:142
+msgctxt "taxonomy singular name"
+msgid "Deposit Type"
+msgstr "Pfandwert"
+
+#: admin/class-woocommerce-pfand-admin.php:143
+msgctxt "admin menu"
+msgid "Deposit Types"
+msgstr "Pfandwerte"
+
+#: admin/class-woocommerce-pfand-admin.php:144
+msgctxt "add new on admin bar"
+msgid "Add New Deposit Type"
+msgstr "Neuen Pfandwert hinzufügen"
+
+#: admin/class-woocommerce-pfand-admin.php:145
+msgctxt "add new on admin menu"
+msgid "Add New Deposit Type"
+msgstr "Neuen Pfandwert hinzufügen"
+
+#: admin/class-woocommerce-pfand-admin.php:146
+msgid "Search Deposit Types"
+msgstr "Pfandwerte durchsuchen"
+
+#: admin/class-woocommerce-pfand-admin.php:147
+msgid "Popular Deposit Types"
+msgstr "Beliebte Pfandwerte"
+
+#: admin/class-woocommerce-pfand-admin.php:148
+msgid "All Deposit Types"
+msgstr "Alle Pfandwerte"
+
+#: admin/class-woocommerce-pfand-admin.php:149
+msgid "Parent Deposit Type"
+msgstr "Übergeordneter Pfandwert"
+
+#: admin/class-woocommerce-pfand-admin.php:150
+msgid "Parent Deposit Type:"
+msgstr "Übergeordneter Pfandwert:"
+
+#: admin/class-woocommerce-pfand-admin.php:151
+msgid "Edit Deposit Type"
+msgstr "Pfandwert bearbeiten"
+
+#: admin/class-woocommerce-pfand-admin.php:152
+msgid "Update Deposit Type"
+msgstr "Pfandwert aktualisieren"
+
+#: admin/class-woocommerce-pfand-admin.php:153
+msgid "New Deposit Type"
+msgstr "Neuen Pfandwert hinzufügen"
+
+#: admin/class-woocommerce-pfand-admin.php:154
+msgid "Separate deposit types with commas"
+msgstr "Trenne Pfandwerte mit Kommata"
+
+#: admin/class-woocommerce-pfand-admin.php:155
+msgid "Add or remove Deposit Types"
+msgstr "Pfandwert hinzufügen oder entfernen"
+
+#: admin/class-woocommerce-pfand-admin.php:156
+msgid "Choose from most used Deposit Types"
+msgstr "Wählen Sie von den meistgenutzten Pfandwerten"
+
+#: admin/class-woocommerce-pfand-admin.php:182
+msgid "Deposit Type"
+msgstr "Pfandwert"
+
+#: admin/class-woocommerce-pfand-admin.php:183
+msgid "Description"
+msgstr "Beschreibung"
+
+#: admin/class-woocommerce-pfand-admin.php:184
+msgid "Count"
+msgstr "Anzahl"
+
+#: basic/class-woocommerce-pfand-basic.php:80
+#: basic/class-woocommerce-pfand-basic.php:109
+#, php-format
+msgid "plus deposit of %s"
+msgstr "zzgl. %s Pfand"
+
+#: basic/class-woocommerce-pfand-basic.php:134
+msgid "Deposit Total"
+msgstr "Pfand Summe"
+
+#. Plugin Name of the plugin/theme
+msgid "Woocommerce Pfand"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://www.nerdissimo.de"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin makes it easy to add Deposits (Pfand) to WooCommerce products"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Nerdissimo"
+msgstr ""
