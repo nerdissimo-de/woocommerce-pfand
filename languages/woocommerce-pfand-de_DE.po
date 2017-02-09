@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woocommerce Pfand\n"
-"POT-Creation-Date: 2016-10-20 19:23+0200\n"
-"PO-Revision-Date: 2016-10-20 19:25+0200\n"
+"POT-Creation-Date: 2017-02-09 20:50+0100\n"
+"PO-Revision-Date: 2017-02-09 20:50+0100\n"
 "Last-Translator: Daniel Kay <daniel@enthusiasm.cc>\n"
 "Language-Team: Daniel Kay <daniel@enthusiasm.cc>\n"
 "Language: de_DE\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
@@ -44,8 +44,8 @@ msgid ""
 "If checked hides deposit display next to the product prices in the cart and "
 "checkout."
 msgstr ""
-"Wenn aktiviert: Versteckt Pfandwertanzeige neben Produktpreisen in "
-"Warenkorb und Kasse."
+"Wenn aktiviert: Versteckt Pfandwertanzeige neben Produktpreisen in Warenkorb "
+"und Kasse."
 
 #: admin/class-woocommerce-pfand-admin.php:141
 msgctxt "taxonomy general name"
@@ -134,7 +134,7 @@ msgstr "Anzahl"
 msgid "plus deposit of %s"
 msgstr "zzgl. %s Pfand"
 
-#: basic/class-woocommerce-pfand-basic.php:134
+#: basic/class-woocommerce-pfand-basic.php:135
 msgid "Deposit Total"
 msgstr "Pfand Summe"
 
