@@ -6,25 +6,25 @@
  * @link       http://www.nerdissimo.de
  * @since      1.0.0
  *
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/basic
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/basic
  */
 
 /**
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/basic
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/basic
  * @author     Daniel Kay <daniel@nerdissimo.de>
  */
-class Woocommerce_Pfand_Basic {
+class Woo_Pfand_Basic {
 
 	/**
 	 * The ID of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $woocommerce_pfand    The ID of this plugin.
+	 * @var      string    $woo_pfand    The ID of this plugin.
 	 */
-	private $woocommerce_pfand;
+	private $woo_pfand;
 
 	/**
 	 * The version of this plugin.
@@ -39,12 +39,12 @@ class Woocommerce_Pfand_Basic {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @var      string    $woocommerce_pfand       The name of the plugin.
+	 * @var      string    $woo_pfand       The name of the plugin.
 	 * @var      string    $version    The version of this plugin.
 	 */
-	public function __construct( $woocommerce_pfand, $version ) {
+	public function __construct( $woo_pfand, $version ) {
 
-        $this->woocommerce_pfand = $woocommerce_pfand;
+        $this->woo_pfand = $woo_pfand;
         $this->version = $version;
 
         add_filter( 'woocommerce_get_price_suffix', array( $this, 'add_deposit_value_to_price_suffix' ), 10, 2 );
@@ -77,7 +77,7 @@ class Woocommerce_Pfand_Basic {
             $price_display_suffix = preg_replace( '/<\/small>/', '', $price_display_suffix, 1 ); // removes </small>
 
             $price_display_suffix .= '<br />';
-            $price_display_suffix .= sprintf( __( 'plus deposit of %s', $this->woocommerce_pfand ), wc_price( $dep_total ) );
+            $price_display_suffix .= sprintf( __( 'plus deposit of %s', $this->woo_pfand ), wc_price( $dep_total ) );
 
             $price_display_suffix .= '</small>';
 
@@ -106,7 +106,7 @@ class Woocommerce_Pfand_Basic {
         $dep_total = $this->get_deposit( $values['product_id'], $qty );
 
         if( ! empty( $dep_total ) )
-            return $product_price . '<br /><small class="deposit_label">' .  sprintf( __( 'plus deposit of %s', $this->woocommerce_pfand ), wc_price( $dep_total ) ) . '</small>';
+            return $product_price . '<br /><small class="deposit_label">' .  sprintf( __( 'plus deposit of %s', $this->woo_pfand ), wc_price( $dep_total ) ) . '</small>';
  
         return $product_price;
     }
@@ -132,7 +132,7 @@ class Woocommerce_Pfand_Basic {
         $tax_class = apply_filters( 'tax_class_before_add_fee', $tax_class );
 
         if( $dep_total > 0 )
-            $woocommerce->cart->add_fee( __( 'Deposit Total', $this->woocommerce_pfand ), $dep_total, $tax, $tax_class );
+            $woocommerce->cart->add_fee( __( 'Deposit Total', $this->woo_pfand ), $dep_total, $tax, $tax_class );
 
     }
 

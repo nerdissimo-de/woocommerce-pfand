@@ -64,7 +64,7 @@ Since there are a lot of different ways you or your customer may want this set u
 
 ## Installation
 
-1. Upload `woocommerce-pfand/` to the `/wp-content/plugins/` directory
+1. Upload `woo-pfand/` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the `Plugins` menu in WordPress
 3. Configure the plugin through `Woocommerce -> Settings -> Tab: Deposit`
 3. Go to `Products - Deposit Types` and create deposit prices as you would add tags

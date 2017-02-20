@@ -6,8 +6,8 @@
  * @link       http://www.nerdissimo.de
  * @since      1.0.0
  *
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/includes
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/includes
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/includes
  * @author     Daniel Kay <daniel@nerdissimo.de>
  */
-class Woocommerce_Pfand_Loader {
+class Woo_Pfand_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

@@ -9,8 +9,8 @@
  * @link       http://www.nerdissimo.de
  * @since      1.0.0
  *
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/includes
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/includes
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/includes
  * @author     Daniel Kay <daniel@nerdissimo.de>
  */
-class Woocommerce_Pfand {
+class Woo_Pfand {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Woocommerce_Pfand {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Woocommerce_Pfand_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Woo_Pfand_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -44,9 +44,9 @@ class Woocommerce_Pfand {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $woocommerce_pfand    The string used to uniquely identify this plugin.
+	 * @var      string    $woo_pfand    The string used to uniquely identify this plugin.
 	 */
-	protected $woocommerce_pfand;
+	protected $woo_pfand;
 
 	/**
 	 * The current version of the plugin.
@@ -68,7 +68,7 @@ class Woocommerce_Pfand {
 	 */
 	public function __construct() {
 
-		$this->woocommerce_pfand = 'woocommerce-pfand';
+		$this->woo_pfand = 'woo-pfand';
 		$this->version = '2.0.0';
 
 		$this->load_dependencies();
@@ -93,32 +93,32 @@ class Woocommerce_Pfand {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woocommerce-pfand-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woo-pfand-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woocommerce-pfand-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woo-pfand-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the Dashboard.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woocommerce-pfand-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-pfand-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that are basic to the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'basic/class-woocommerce-pfand-basic.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'basic/class-woo-pfand-basic.php';
 
-        $this->loader = new Woocommerce_Pfand_Loader(); 
+        $this->loader = new Woo_Pfand_Loader(); 
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Woocommerce_Pfand_i18n class in order to set the domain and to register the hook
+	 * Uses the Woo_Pfand_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -126,8 +126,8 @@ class Woocommerce_Pfand {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Woocommerce_Pfand_i18n();
-		$plugin_i18n->set_domain( $this->get_woocommerce_pfand() );
+		$plugin_i18n = new Woo_Pfand_i18n();
+		$plugin_i18n->set_domain( $this->get_woo_pfand() );
 
         $this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -142,7 +142,7 @@ class Woocommerce_Pfand {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Woocommerce_Pfand_Admin( $this->get_woocommerce_pfand(), $this->get_version() );
+		$plugin_admin = new Woo_Pfand_Admin( $this->get_woo_pfand(), $this->get_version() );
 
         $this->loader->add_action( 'init', $plugin_admin, 'deposit_taxonomy' );
 
@@ -157,7 +157,7 @@ class Woocommerce_Pfand {
 	 */
 	private function define_basic_hooks() {
 
-		$plugin_basic = new Woocommerce_Pfand_Basic( $this->get_woocommerce_pfand(), $this->get_version() );
+		$plugin_basic = new Woo_Pfand_Basic( $this->get_woo_pfand(), $this->get_version() );
 
     }
 
@@ -177,15 +177,15 @@ class Woocommerce_Pfand {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_woocommerce_pfand() {
-		return $this->woocommerce_pfand;
+	public function get_woo_pfand() {
+		return $this->woo_pfand;
 	}
 
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Woocommerce_Pfand_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Woo_Pfand_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;
