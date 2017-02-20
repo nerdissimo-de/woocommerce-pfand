@@ -122,7 +122,7 @@ class Woo_Pfand_Basic {
         global $woocommerce;
 
         $dep_total = 0;
-        $tax = $taxclass = false;
+        $tax = $tax_class = false;
 
         foreach( WC()->cart->get_cart() as $cart_item )
             $dep_total = $dep_total + $this->get_deposit( $cart_item['product_id'], $cart_item['quantity'] );
