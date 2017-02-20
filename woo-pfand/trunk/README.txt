@@ -1,4 +1,4 @@
-=== Woocommerce Pfand Plugin ===
+=== Pfand (Deposit) for WooCommerce Products ===
 Contributors: jessekeys
 Donate link: http://www.nerdissimo.de
 Tags: woocommerce, deposit
@@ -9,7 +9,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
-This plugin makes it easy to add deposit like "bottle deposit" (German: Flaschenpfand) to WooCommerce products.
+This plugin makes it easy to add deposits like "bottle deposit" (German: Flaschenpfand) to WooCommerce products.
 
 
 == Description ==
