@@ -6,8 +6,8 @@
  * @link       http://www.nerdissimo.de
  * @since      1.0.0
  *
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/includes
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/includes
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/includes
  * @author     Daniel Kay <daniel@nerdissimo.de>
  */
-class Woocommerce_Pfand_Activator {
+class Woo_Pfand_Activator {
 
 	/**
 	 * Short Description. (use period)

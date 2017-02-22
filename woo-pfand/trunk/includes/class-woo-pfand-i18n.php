@@ -9,8 +9,8 @@
  * @link       http://www.nerdissimo.de
  * @since      1.0.0
  *
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/includes
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/includes
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/includes
  * @author     Daniel Kay <daniel@nerdissimo.de>
  */
-class Woocommerce_Pfand_i18n {
+class Woo_Pfand_i18n {
 
 	/**
 	 * The domain specified for this plugin.

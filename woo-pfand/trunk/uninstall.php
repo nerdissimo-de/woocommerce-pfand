@@ -6,7 +6,7 @@
  * @link       http://www.nerdissimo.de
  * @since      1.0.0
  *
- * @package    Woocommerce_Pfand
+ * @package    Woo_Pfand
  */
 
 // If uninstall not called from WordPress, then exit.

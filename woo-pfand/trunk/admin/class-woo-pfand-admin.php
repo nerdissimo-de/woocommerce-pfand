@@ -6,8 +6,8 @@
  * @link       http://www.nerdissimo.de
  * @since      1.0.0
  *
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/admin
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/admin
  */
 
 /**
@@ -16,20 +16,20 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the dashboard-specific stylesheet and JavaScript.
  *
- * @package    Woocommerce_Pfand
- * @subpackage Woocommerce_Pfand/admin
+ * @package    Woo_Pfand
+ * @subpackage Woo_Pfand/admin
  * @author     Daniel Kay <daniel@nerdissimo.de>
  */
-class Woocommerce_Pfand_Admin {
+class Woo_Pfand_Admin {
 
 	/**
 	 * The ID of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $woocommerce_pfand    The ID of this plugin.
+	 * @var      string    $woo_pfand    The ID of this plugin.
 	 */
-	private $woocommerce_pfand;
+	private $woo_pfand;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Woocommerce_Pfand_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @var      string    $woocommerce_pfand       The name of this plugin.
+	 * @var      string    $woo_pfand       The name of this plugin.
 	 * @var      string    $version    The version of this plugin.
 	 */
-	public function __construct( $woocommerce_pfand, $version ) {
+	public function __construct( $woo_pfand, $version ) {
 
-		$this->woocommerce_pfand = $woocommerce_pfand;
+		$this->woo_pfand = $woo_pfand;
         $this->version = $version;
 
         add_filter( 'woocommerce_settings_tabs_array', array( $this, 'add_settings_tab' ), 50 ); 
@@ -66,7 +66,7 @@ class Woocommerce_Pfand_Admin {
      * @since   2.0.0
      */ 
     function add_settings_tab( $settings_tabs ) { 
-        $settings_tabs['deposit'] = __( 'Deposit', $this->woocommerce_pfand ); 
+        $settings_tabs['deposit'] = __( 'Deposit', $this->woo_pfand ); 
         return $settings_tabs; 
     } 
  
@@ -99,21 +99,21 @@ class Woocommerce_Pfand_Admin {
         // Start Section
         $settings = array( 
             'section_title' => array( 
-                'name'     => __( 'Deposit', $this->woocommerce_pfand ), 
+                'name'     => __( 'Deposit', $this->woo_pfand ), 
                 'type'     => 'title', 
                 'desc'     => '', 
                 'id'       => 'wc_deposit_section_title' 
             ),
             'hide_in_loop' => array( 
-                'name' => __( 'Hide in loop', $this->woocommerce_pfand ), 
+                'name' => __( 'Hide in loop', $this->woo_pfand ), 
                 'type' => 'checkbox', 
-                'desc' => __( 'If checked hides deposit display on archives and single product pages.', $this->woocommerce_pfand ), 
+                'desc' => __( 'If checked hides deposit display on archives and single product pages.', $this->woo_pfand ), 
                 'id'   => 'wc_deposit_hide_in_loop' 
             ), 
             'hide_in_cart' => array( 
-                'name' => __( 'Hide in cart/checkout', $this->woocommerce_pfand ), 
+                'name' => __( 'Hide in cart/checkout', $this->woo_pfand ), 
                 'type' => 'checkbox', 
-                'desc' => __( 'If checked hides deposit display next to the product prices in the cart and checkout.', $this->woocommerce_pfand ), 
+                'desc' => __( 'If checked hides deposit display next to the product prices in the cart and checkout.', $this->woo_pfand ), 
                 'id'   => 'wc_deposit_hide_in_cart' 
             )
         ); 
@@ -138,22 +138,22 @@ class Woocommerce_Pfand_Admin {
     public function deposit_taxonomy() {
 
         $labels = array( 
-            'name' => _x( 'Deposit Types', 'taxonomy general name', $this->woocommerce_pfand ),
-            'singular_name' => _x( 'Deposit Type', 'taxonomy singular name', $this->woocommerce_pfand ),
-            'menu_name' => _x( 'Deposit Types', 'admin menu', $this->woocommerce_pfand ),
-            'name_admin_bar' => _x( 'Add New Deposit Type', 'add new on admin bar', $this->woocommerce_pfand ),
-            'add_new_item' => _x( 'Add New Deposit Type', 'add new on admin menu', $this->woocommerce_pfand ),
-            'search_items' => __( 'Search Deposit Types', $this->woocommerce_pfand ),
-            'popular_items' => __( 'Popular Deposit Types', $this->woocommerce_pfand ),
-            'all_items' => __( 'All Deposit Types', $this->woocommerce_pfand ),
-            'parent_item' => __( 'Parent Deposit Type', $this->woocommerce_pfand ),
-            'parent_item_colon' => __( 'Parent Deposit Type:', $this->woocommerce_pfand ),
-            'edit_item' => __( 'Edit Deposit Type', $this->woocommerce_pfand ),
-            'update_item' => __( 'Update Deposit Type', $this->woocommerce_pfand ),
-            'new_item_name' => __( 'New Deposit Type', $this->woocommerce_pfand ),
-            'separate_items_with_commas' => __( 'Separate deposit types with commas', $this->woocommerce_pfand ),
-            'add_or_remove_items' => __( 'Add or remove Deposit Types', $this->woocommerce_pfand ),
-            'choose_from_most_used' => __( 'Choose from most used Deposit Types', $this->woocommerce_pfand ),
+            'name' => _x( 'Deposit Types', 'taxonomy general name', $this->woo_pfand ),
+            'singular_name' => _x( 'Deposit Type', 'taxonomy singular name', $this->woo_pfand ),
+            'menu_name' => _x( 'Deposit Types', 'admin menu', $this->woo_pfand ),
+            'name_admin_bar' => _x( 'Add New Deposit Type', 'add new on admin bar', $this->woo_pfand ),
+            'add_new_item' => _x( 'Add New Deposit Type', 'add new on admin menu', $this->woo_pfand ),
+            'search_items' => __( 'Search Deposit Types', $this->woo_pfand ),
+            'popular_items' => __( 'Popular Deposit Types', $this->woo_pfand ),
+            'all_items' => __( 'All Deposit Types', $this->woo_pfand ),
+            'parent_item' => __( 'Parent Deposit Type', $this->woo_pfand ),
+            'parent_item_colon' => __( 'Parent Deposit Type:', $this->woo_pfand ),
+            'edit_item' => __( 'Edit Deposit Type', $this->woo_pfand ),
+            'update_item' => __( 'Update Deposit Type', $this->woo_pfand ),
+            'new_item_name' => __( 'New Deposit Type', $this->woo_pfand ),
+            'separate_items_with_commas' => __( 'Separate deposit types with commas', $this->woo_pfand ),
+            'add_or_remove_items' => __( 'Add or remove Deposit Types', $this->woo_pfand ),
+            'choose_from_most_used' => __( 'Choose from most used Deposit Types', $this->woo_pfand ),
         );
 
         $args = array( 
@@ -179,9 +179,9 @@ class Woocommerce_Pfand_Admin {
     function deptype_columns( $columns ) {
         $new_columns = array(
             'cb' => '<input type="checkbox" />',
-            'name' => __( 'Deposit Type', $this->woocommerce_pfand ),
-            'description' => __( 'Description', $this->woocommerce_pfand ),
-            'posts' => __( 'Count', $this->woocommerce_pfand )
+            'name' => __( 'Deposit Type', $this->woo_pfand ),
+            'description' => __( 'Description', $this->woo_pfand ),
+            'posts' => __( 'Count', $this->woo_pfand )
         );
         return $new_columns;
     }
