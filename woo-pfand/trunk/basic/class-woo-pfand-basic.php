@@ -70,7 +70,7 @@ class Woo_Pfand_Basic {
         if( ! $this->display_deposit() )
             return $price_display_suffix;
 
-        $dep_total = $this->get_deposit( $product->id );
+        $dep_total = $this->get_deposit( $product->get_id() );
 
         if( ! empty( $dep_total ) ) {
 
